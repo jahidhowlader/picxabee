@@ -1,5 +1,5 @@
 import Feed from '@/components/Feed';
-import Modal from '@/components/Modal';
+// import Modal from '@/components/Modal';
 import Nav from '@/components/Nav';
 
 export default function Home() {
