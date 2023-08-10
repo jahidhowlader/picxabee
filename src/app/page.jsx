@@ -16,14 +16,4 @@ export default function Home() {
     </div>
     
   )
-	return (
-		<div className="bg-gray-50 h-screen overflow-y-scroll scrollbar-hide">
-			{/* Header */}
-			<Nav />
-			{/* Feed  */}
-			<Feed />
-			{/* Modal  */}
-			<Modal />
-		</div>
-	);
 }
