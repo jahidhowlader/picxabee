@@ -12,7 +12,7 @@ export default function Home() {
       {/* Feed  */}
       <Feed />
       {/* Modal  */}
-      <Modal />
+      {/* <Modal /> */}
     </div>
     
   )

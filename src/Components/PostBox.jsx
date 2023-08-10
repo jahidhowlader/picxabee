@@ -28,8 +28,8 @@ const PostBox = () => {
       <section className="my-8 w-full">
         <div className=" bg-[#F9F9F9] shadow-sm px-5 py-5 text-black">
           <div className="flex gap-x-4">
-            <div className="avatar online">
-              <Image src={avatarImage} width={50} height={50} alt="" className="rounded-full" />
+            <div className="online">
+              <Image src={avatarImage} alt="" className="w-12 h-12 rounded-full p-[2px]" />
             </div>
 
             <div className="w-full">
@@ -53,7 +53,7 @@ const PostBox = () => {
             </button>
           </div>
           <div>
-            <button className="bg-[#F87171] w-full text-center text-white py-2 mt-4 font-semibold">
+            <button className="bg-[#024d47] w-full text-center text-white py-2 mt-4 font-semibold">
               Post{" "}
             </button>
           </div>
