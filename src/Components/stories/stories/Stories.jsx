@@ -1,12 +1,14 @@
 'use client';
 import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Stories.css';
 
 import { Navigation, Pagination } from 'swiper/modules';
 import Story from '../story/Story';
+// import {Swiper, } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const users = [
 	{
@@ -191,7 +193,7 @@ const Stories = () => {
 				}}
 				navigation={true}
 				modules={[Navigation, Pagination]}
-				className="w-full mySwiper mx-auto my-4"
+				className="w-full mySwiper mx-auto my-10"
 			>
 				{users.map((user, i) => (
 					<SwiperSlide key={i}>
