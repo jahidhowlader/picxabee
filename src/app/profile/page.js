@@ -1,7 +1,12 @@
+
+// import ProfileSection from '@/components/profile/ProfileSection';
+import React from 'react';
+
+
 const ProfilePage = () => {
     return (
-        <div>
-            Profile page
+        <div className='h-screen pt-10'>
+        {/* <ProfileSection></ProfileSection> */}
         </div>
     );
 };

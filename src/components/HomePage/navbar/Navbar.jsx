@@ -221,9 +221,8 @@ const Navbar = () => {
 					<Image src={logo} alt="" className="w-12" />
 				</div>
 				<div
-					className={`logo text-xl lg:hidden ${
-						searchActive ? 'hidden' : 'visible'
-					}`}
+					className={`logo text-xl lg:hidden ${searchActive ? 'hidden' : 'visible'
+						}`}
 				>
 					<span className="text-2xl pl-5">P</span>icxa
 					<span className="">bee</span>
