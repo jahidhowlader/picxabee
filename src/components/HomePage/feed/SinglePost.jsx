@@ -8,13 +8,27 @@ import { BsSave } from 'react-icons/bs';
 import Image from 'next/image';
 import Link from 'next/link';
 import CommentSection from './CommentSection';
+import EditOption from './EditOption';
 
 
 const SinglePost = ({ post }) => {
 const [react, setReact] = useState(false)
-const [open, setOpen] = useState(false);
+const [open, setOpen] = useState(false);     //write comment section
+const [isOpen, setIsOpen] = useState(false);
+  //editOption modal
+
 	const { _id, author, comments, reactedBy } = post;
 	console.log(post);
+	
+
+		function closeModal() {
+			setIsOpen(false);
+		}
+
+		function openModal() {
+			setIsOpen(true);
+		}
+
 	return (
 		<div
 			data-aos="fade-up"
@@ -31,10 +45,17 @@ const [open, setOpen] = useState(false);
 					/>
 					<p className="capitalize">{author?.username}</p>
 				</div>
-				<BsThreeDots
-					size={28}
-					className="hover:scale-125 duration-300 hover:text-gray-400 hover:cursor-pointer"
-				/>
+				<button onClick={openModal}>
+					<BsThreeDots
+						size={28}
+						className="hover:scale-125 duration-300 hover:text-gray-400 hover:cursor-pointer"
+					/>
+				</button>
+				<EditOption
+					closeModal={closeModal}
+					openModal={openModal}
+					isOpen={isOpen}
+				></EditOption>
 			</div>
 			<Image
 				src={author.photo}
