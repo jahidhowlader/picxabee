@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { GoHome } from 'react-icons/go';
 import { LuLogOut } from 'react-icons/lu';
-import logo from "../../../../public/swarm.png";
+import logo from '../../../public/swarm.png';
 import { GrSend } from 'react-icons/gr';
 import { IoSettingsOutline } from 'react-icons/io5';
 
