@@ -18,7 +18,7 @@ const [open, setOpen] = useState(false);
 	return (
 		<div
 			data-aos="fade-up"
-			className="w-full lg:w-4/12  mx-auto lg:px-0 border-2 rounded-md mb-3"
+			className="w-full lg:w-4/12 mx-auto px-8 lg:px-0 border-2 rounded-md mb-3"
 		>
 			<div className="w-full flex items-center justify-between  p-2">
 				<div className="flex items-center">
