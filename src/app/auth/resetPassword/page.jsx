@@ -41,7 +41,7 @@
 //                         <input type="submit" className='bg-primary-color px-5 py-2 rounded-l-none text-white rounded-md cursor-pointer' />
 //                     </div>
 //                     {errors.email?.type === 'pattern' && <span className='text-red  font-semibold'>Email address is not validated</span>}
-//                     {errors.email?.type === 'required' && <span className='text-red  font-semibold'>Email is required</span>}
+//                     {errors.email?.type === 'requiredgit ' && <span className='text-red  font-semibold'>Email is required</span>}
 
 //                 </form>
 //             </div>
