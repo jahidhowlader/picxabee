@@ -37,13 +37,13 @@ const SearchPage =  ({ searchParams }) => {
           
          
           {filteredResults?.slice(0, seeMore ? filteredResults.length : 8).map((user, index) => (
-            <div key={index} className="border  hover:bg-light-gray dark:hover:bg-black border-gray justify-between rounded-xl flex items-center px-5 py-2 ">
+            <div key={index} className="border  hover:bg-light-gray dark:hover:bg-black gap-5 lg:gap-0 border-gray justify-between rounded-xl flex items-center px-5 py-2 ">
               <div className='flex gap-2 items-center'>
               <Image src={user?.profile_picture} height={50} width={50} className="rounded-full lg:w-10 lg:h-10 h-8 w-8"></Image>
              <h2 className='lg:font-bold font-normal text-sm lg:text-base'> {user?.name}</h2>
               </div>
              
-             <div className="flex gap-5">
+             <div className="flex gap-2 lg:gap-5">
               <button className="flex items-center border-1 gap-2 border-1 border  px-2 py-1 rounded-md text-primary-color  border-primary-color hover:bg-primary-color hover:text-white"><span className='text-sm lg:block hidden'>Follow</span> <AiOutlinePlusCircle size={22}/></button>
               <button className="flex items-center border-1 gap-2 border-1 border  px-2 py-1 rounded-md text-primary-color  border-primary-color hover:bg-primary-color hover:text-white"><span className='lg:block hidden'>Message</span> <HiOutlineChatAlt2 size={22}/></button>
              </div>
@@ -52,11 +52,11 @@ const SearchPage =  ({ searchParams }) => {
           ))}
 {!seeMore && (
           <div className='mx-auto mt-5 items-center gap-5 flex'>
-<hr className='w-20' />
+<hr className='lg:w-20 w-10' />
            <button
            onClick={SeeMoreData} 
-           className="  text-primary-color dark:hover:text-primary-color hover:text-white hover:bg-primary-color dark:hover:bg-black bg-white  py-3 border-primary-color border dark:bg-primary-color dark:text-white shadow-primary-color font-semibold px-3 rounded-xl">See more</button>
-<hr className='w-20'/>
+           className="  text-primary-color dark:hover:text-primary-color hover:text-white hover:bg-primary-color dark:hover:bg-black bg-white  py-1 lg:py-3 border-primary-color border dark:bg-primary-color dark:text-white shadow-primary-color font-semibold px-3 rounded-xl">See more</button>
+<hr className='lg:w-20 w-10'/>
           </div>
 )}
           </div>
