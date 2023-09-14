@@ -18,6 +18,7 @@ import "react-modern-drawer/dist/index.css";
 import Link from "next/link";
 import ThemeButton from "./ThemeButton";
 import { TbLayoutDashboard } from "react-icons/tb";
+import { BiDonateBlood } from "react-icons/bi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
 import useAuth from "@/hooks/useAuth";
@@ -141,7 +142,9 @@ const NavItems = () => {
                 className="bla bla bla dark:bg-black"
               >
                 <div className="dark:bg-black-bg-primary  min-h-screen">
+
                   <div className=" lg:text-lg flex flex-col gap-5 w-4/5 mx-auto lg:pt-12 pt-24   rounded-xl ">
+
                     <p className=" ">
                       <AiOutlineUser className="inline" />{" "}
                       <span>{user.displayName}</span>
@@ -164,7 +167,7 @@ const NavItems = () => {
                     <div className={pathname === '/settings' ? 'sideActive' : ''}>
                       <p
                         onClick={toggleDrawer1}
-                        className=" flex items-center group  hover:ml-2 transition-all"
+                        className=" flex items-center group cursor-pointer  hover:ml-2 transition-all"
                       >
                         <IoSettingsOutline size={28} className="inline mr-2" />
                         Settings
@@ -178,8 +181,10 @@ const NavItems = () => {
                       direction="right"
                       className="bla bla bla dark:bg-black  "
                     >
+
                       <div className="dark:bg-black-bg-primary lg:pl-2   min-h-screen ">
                         <p onClick={toggleDrawer1} className="lg:pt-8 pt-24">
+
                           <BsArrowLeftCircle
                             size={26}
                             className="hover:scale-110 ml-4"
@@ -237,6 +242,21 @@ const NavItems = () => {
                         </>
                       )}
                     </div>
+                    {/* Hridoy Haque */}
+                    <div className="lg:hidden block"><div className={pathname === '/donate' ? 'sideActive' : ''}>
+                            <Link href="/donate">
+                              <p className=" flex items-center group  hover:ml-2 transition-all">
+                                <BiDonateBlood
+                                  size={28}
+                                  className="inline mr-2"
+                                />
+                                Donate
+                                <AiOutlineArrowRight className=" ml-2 opacity-0 group-hover:opacity-100 inline" />
+                              </p>
+                            </Link>
+                          </div></div>
+                    {/* Hridoy Haque */}
+                    
 
                     <p
                       onClick={handleLogOut}

@@ -2,20 +2,22 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-
 import { AiFillHeart, AiOutlineComment, AiOutlineHeart } from 'react-icons/ai';
 import { BsBookmarkCheck, BsThreeDots } from 'react-icons/bs';
+import { MdOutlinePublic } from 'react-icons/md';
+import { BiDonateHeart } from 'react-icons/bi';
+import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 import CommentSection from './CommentSection';
 import EditOption from './EditOption';
 import SingleComment from './SingleComment';
 import useAuth from '@/hooks/useAuth';
-import AuthContext from '@/context/AuthContext';
 
 const SinglePost = ({ post }) => {
-	const [react, setReact] = useState(false);
+	const [expanded, setExpanded] = useState(false);
+
 	const [open, setOpen] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
-	const { user } = useAuth(AuthContext);
+	const { user } = useAuth();
 	const { _id: id } = post;
 
 	const isReacted = post.reactions.some((reaction) => {
@@ -97,10 +99,48 @@ const SinglePost = ({ post }) => {
 				console.warning('Fetch error:', error);
 			});
 	};
+
+	const wordLimit = 100;
+	const toggleExpand = () => {
+		setExpanded(!expanded);
+	};
+
+	const renderContent = () => {
+		const words = post?.content.split(' ');
+
+		if (expanded || words.length <= wordLimit) {
+			return (
+				<div>
+					<h1 className="py-3">
+						{post?.content}
+						{words.length > wordLimit && (
+							<button className="text-xs text-gray" onClick={toggleExpand}>
+								...Show Less
+							</button>
+						)}
+					</h1>
+				</div>
+			);
+		} else {
+			const shortenedContent = words.slice(0, wordLimit).join(' ');
+			return (
+				<div>
+					<h1 className="py-3">
+						{shortenedContent}
+						<button className="text-xs text-gray" onClick={toggleExpand}>
+							...Show More
+						</button>
+					</h1>
+				</div>
+			);
+		}
+	};
+
 	return (
 		<div
 			data-aos="fade-up"
-			className="border-2  border-gray border-opacity-20 rounded-md mb-3 p-5 dark:bg-black"
+			// border-2  border-gray border-opacity-20 rounded-md mb-3 p-5 dark:bg-black
+			className="w-96 lg:w-full border-2 mx-auto border-gray border-opacity-20 rounded-md mb-3 p-5 dark:bg-black"
 		>
 			<div className="w-full flex items-center justify-between">
 				<div className="flex items-center">
@@ -112,7 +152,18 @@ const SinglePost = ({ post }) => {
 						className="rounded-full h-12 w-12 object-cover border p-1 mr-3"
 					/>
 					<div>
-						<p className="font-bold capitalize">{post?.author?.name}</p>
+						<div className="flex gap-2">
+							<p className="font-bold capitalize">{post?.author?.name}</p>
+							<div className="text-gray mb-[2px]">
+								{post?.privacy === 'public' ? (
+									<MdOutlinePublic />
+								) : post?.privacy === 'private' ? (
+									<RiGitRepositoryPrivateLine />
+								) : (
+									<BiDonateHeart />
+								)}
+							</div>
+						</div>
 						<p className="font-normal text-sm ">{formattedDateTime}</p>
 					</div>
 				</div>
@@ -141,7 +192,9 @@ const SinglePost = ({ post }) => {
 					isOpen={isOpen}
 				></EditOption>
 			</div>
-			{post?.content && <h1 className="py-3">{post?.content}</h1>}
+			{/* {post?.content && <h1 className="py-3">{post?.content}</h1>} */}
+			{post?.content && renderContent()}
+
 			{post?.image && (
 				<Image
 					src={post?.image}
@@ -151,23 +204,8 @@ const SinglePost = ({ post }) => {
 					className="object-contain border-none w-full h-[500px] py-3 rounded-md" //object-contain
 				/>
 			)}
-			<div className="bg-gray bg-opacity-10 py-2 mx-auto rounded-md">
+			<div className="bg-gray bg-opacity-10 mt-7 py-2 mb-5 mx-auto rounded-md">
 				<div className="flex justify-around">
-					<BsBookmarkCheck
-						onClick={handleBookmark}
-						size={26}
-						className="hover:scale-110 duration-300 hover:text-gray-400 hover:cursor-pointer"
-					/>
-					<div className="flex gap-1">
-						<AiOutlineComment
-							onClick={() => setOpen(!open)}
-							size={28}
-							className="hover:scale-110 duration-300 hover:text-gray-400 hover:cursor-pointer"
-						/>
-						<p className="font-semibold text-lg">
-							{post?.comments && post?.comments.length}
-						</p>
-					</div>
 					<div className="flex gap-1">
 						{isReacted ? (
 							<AiFillHeart
@@ -186,13 +224,28 @@ const SinglePost = ({ post }) => {
 							{post?.reactions && post?.reactions.length}
 						</p>
 					</div>
+					<div className="flex gap-1">
+						<AiOutlineComment
+							onClick={() => setOpen(!open)}
+							size={28}
+							className="hover:scale-110 duration-300 hover:text-gray-400 hover:cursor-pointer"
+						/>
+						<p className="font-semibold text-lg">
+							{post?.comments && post?.comments.length}
+						</p>
+					</div>
+
+					<BsBookmarkCheck
+						onClick={handleBookmark}
+						size={26}
+						className="hover:scale-110 duration-300 hover:text-gray-400 hover:cursor-pointer"
+					/>
 				</div>
 			</div>
 
 			<div>
 				{post?.comments?.reverse().map((comment, i) => (
 					<SingleComment
-					
 						key={i}
 						comment={comment}
 						id={post._id}
@@ -200,7 +253,7 @@ const SinglePost = ({ post }) => {
 					></SingleComment>
 				))}
 			</div>
-			<div className=''> 
+			<div className="">
 				<CommentSection id={post._id} open={open}></CommentSection>
 			</div>
 		</div>
