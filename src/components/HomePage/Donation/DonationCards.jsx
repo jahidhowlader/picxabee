@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import DonationCard from "./DonationCard";
 import useFetchData from "@/hooks/useFetchData";
+import { useRouter } from "next/navigation";
+import DonationCard from "./DonationCard";
 
-const DonationCards = () => {
-	// const{ data } =useFetchData(`/api/donation`)
-	// console.log(data)
+const DonationCards = () => {  
+	const router = useRouter();
+  // const{ data } =useFetchData(`/api/donation`)
+  // console.log(data)
 
-	const { data } = useFetchData("/api/donation?currentStatus=approved");
-	console.log(data)
+  const { data } = useFetchData("/api/donation?currentStatus=approved");
+  console.log(data);
 
 	const donations = [
 		{

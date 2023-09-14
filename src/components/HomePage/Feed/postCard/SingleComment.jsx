@@ -43,30 +43,37 @@ const SingleComment = ({ comment, id }) => {
 	};
 
 	return (
-		<div className="flex py-2 last:pb-4 justify-between">
-			<div className="flex  gap-2 last:pb-4 items-center">
+		<div className="grid grid-cols-12 lg:mb-3">
+			<div className="col-span-1">
 				<Image
 					src={comment?.author?.profile_picture}
 					width={40}
 					height={40}
 					alt="Picture of the author"
-					className="rounded-full h-10 w-10 object-cover border p-1"
+					className="rounded-full h-8 w-8 lg:h-10 lg:w-10 object-cover border"
 				/>
-				<p className="text-sm font-bold break-keep">{comment?.author?.name}</p>
-				<h1 className="text-sm break-all text-black-bg-secondary dark:text-white">
-					{comment?.comment}
-				</h1>
 			</div>
-
-			<button
-				disabled={DeleteActive}
-				onClick={() => handleDeleteComment(postId, commentId)}
-			>
-				<RiDeleteBin2Line
-					className={`text-gray hover:text-red ml-3`}
-					size={18}
-				/>
-			</button>
+			<div className="col-span-10">
+				<p className="pt-2">
+					<span className="text-base font-bold break-keep">
+						{comment?.author?.name}
+					</span>
+					<span className="text-sm  text-black-bg-secondary dark:text-white">
+						{comment?.comment}
+					</span>
+				</p>
+			</div>
+			<div className="col-span-1">
+				<button
+					disabled={DeleteActive}
+					onClick={() => handleDeleteComment(postId, commentId)}
+				>
+					<RiDeleteBin2Line
+						className={`text-gray hover:text-red ml-3 lg:mb-2`}
+						size={18}
+					/>
+				</button>
+			</div>
 		</div>
 	);
 };
