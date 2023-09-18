@@ -23,7 +23,7 @@ const UserProfile = ({ params }) => {
             <Navbar />
 
             <div className='my-container mt-20'>
-                <div className={`${styles.imageContainer} relative`}>
+                <div className={`${styles.imageContainer} relative `}>
                     <Image
                         src='https://i.ibb.co/BKfFLsv/cost-bg.jpg'
                         layout='fill'
@@ -41,7 +41,7 @@ const UserProfile = ({ params }) => {
                     <div className='flex justify-between'>
                         <div className='flex'>
                             <div className=" mx-10 overflow-hidden -mt-16 z-40">
-                                <div className={`${styles.profilePic}`}>
+                                <div className={`${styles.profilePic} bg-white rounded-md`}>
                                     <Image
                                         src={data?.singleUser?.profile_picture}
                                         // width={160}
