@@ -10,9 +10,28 @@ const SocialLogin = () => {
 
     const handlerGoogleSignin = () => {
         googleLogin()
-            .then(result => {
-               
+            .then(() => {
                 router.push("/");
+
+                fetch('/api/users', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name: user?.displayName,
+                        email: user?.email,
+                        bio: '',
+                        profile_picture: user?.photoURL,
+                        cover_photo: '',
+                        information: {
+                            school: '',
+                            college: '',
+                            university: '',
+                            location: '',
+                            gender: ''
+                        },
+                        role: 'user',
+                    }),
+                });
+
             })
             .catch(error => {
                 console.log(error.code);
