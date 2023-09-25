@@ -23,7 +23,6 @@ const BookmarkCard = ({ post }) => {
 
 	const isButtonDisabled = post?.author?.email !== user?.email;
 
-	// console.log(isReacted);
 
 	const date1 = new Date(post?.createdAt);
 	const options = { timeStyle: 'short', dateStyle: 'medium' };
