@@ -18,7 +18,7 @@ const PendingDonationPage = () => {
   // Filter the donation posts based on criteria
   // const pendingDonationPosts = donationPosts.filter((post) => post?.privacy === 'Donation');
 
-  console.log(donationPosts)
+  // console.log(donationPosts)
 
   return (
     <div className="flex flex-wrap">

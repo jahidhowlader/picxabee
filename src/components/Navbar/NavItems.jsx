@@ -46,7 +46,7 @@ const NavItems = () => {
 
   const [value, onChange] = useState(new Date());
   const { loggedInUser } = useCurrentUser();
-console.log(loggedInUser)
+// console.log(loggedInUser)
   const handleLogOut = () => {
     logout()
       .then((data) => {

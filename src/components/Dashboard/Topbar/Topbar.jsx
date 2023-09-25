@@ -11,7 +11,7 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 const TopBar = () => {
 	const { user } = useAuth();
 	const { loggedInUser } = useCurrentUser();
-	console.log(loggedInUser)
+	// console.log(loggedInUser)
 	return (
 		<>
 			<div className="h-20  glass px-28 flex justify-end lg:gap-72  items-center">

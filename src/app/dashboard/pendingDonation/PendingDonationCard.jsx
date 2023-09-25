@@ -27,7 +27,7 @@ const PendingDonationCard = ({ title, imageUrl, userProfileImage, username, dona
 
 const handleDenyClick = (donationPost) => {
 
-  console.log("DENY CLICK", donationPost._id)
+  // console.log("DENY CLICK", donationPost._id)
   fetch(`/api/donation?id=${donationPost._id}`, {
     method: 'PATCH',
     headers: {

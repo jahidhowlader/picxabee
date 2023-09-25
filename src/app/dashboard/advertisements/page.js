@@ -20,7 +20,7 @@ const AdvertisementsPage = () => {
 
 	
 
-	console.log(adPosts);
+	// console.log(adPosts);
 
 	return (
 		<>

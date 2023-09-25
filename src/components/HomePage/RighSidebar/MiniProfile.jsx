@@ -9,11 +9,11 @@ const MiniProfile = () => {
 
 
     const { user, logout } = useAuth()
-    console.log("user asee ", user)
+    // console.log("user asee ", user)
 
     const handleLogOut = () => {
         logout();
-        console.log("User logged out")
+        // console.log("User logged out")
     };
     return (
         <div className="flex items-center justify-between ml-10">
