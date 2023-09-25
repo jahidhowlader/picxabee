@@ -27,7 +27,7 @@ export const POST = async (request) => {
 			{ status: 201 }
 		);
 	} catch (error) {
-		console.log(error.name, error.message);
+		// console.log(error.name, error.message);
 		return NextResponse.json({ error: error.message });
 	}
 };

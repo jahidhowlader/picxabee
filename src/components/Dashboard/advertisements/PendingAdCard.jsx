@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 const PendingAdCard = ({ adPost }) => {
-    console.log(adPost)
+    // console.log(adPost)
 	const router = useRouter();
 
 

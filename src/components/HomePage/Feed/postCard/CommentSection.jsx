@@ -10,7 +10,7 @@ const CommentSection = ({ id, open }) => {
 
 	const handleKeyPress = (event) => {
 		if (event.key === 'Enter') {
-			console.log("key pressed")
+			// console.log("key pressed")
 			// onSubmit()
 			handleSubmit(onSubmit);
 		}

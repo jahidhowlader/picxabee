@@ -22,7 +22,6 @@ export const PUT = async (request)=> {
 	try {
 		
 		const  { id,  content } = await request.json();
-		console.log(content);
 		await connect();
 		await Post.findByIdAndUpdate(id, { content });
 		return NextResponse.json({ message: 'Post updated' }, { status: 200 });
@@ -82,7 +81,7 @@ export const PATCH = async (request) => {
 		const hasLiked = post.reactions.some(
 			(reaction) => reaction.author.email === userEmail
 		);
-		console.log(hasLiked);
+		// console.log(hasLiked);
 
 
 			if (hasLiked) {

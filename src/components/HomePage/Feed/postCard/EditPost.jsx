@@ -10,12 +10,12 @@ const EditPost = ({ post, closeModal, setEditPost }) => {
 	const { _id: id } = post;
 
 	const onSubmit = (data) => {
-		console.log(data.content);
+		// console.log(data.content);
 		const newContent = {
 			id,
 			content: data.content,
 		};
-		console.log(newContent);
+		// console.log(newContent);
 
 		fetch(`/api/posts`, {
 			method: 'PUT',

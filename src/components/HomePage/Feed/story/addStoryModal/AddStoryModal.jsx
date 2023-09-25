@@ -42,7 +42,7 @@ const AddStoryModal = ({ ...props }) => {
 
             const data = await res.json();
             // setAddStoryLoading(false)
-            console.log(data);
+            // console.log(data);
             setValue("photo", data.data.url);
             setImgUrl(data.data.url);
             setLoadPhoto(false)

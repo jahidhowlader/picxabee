@@ -227,8 +227,8 @@ const UserProfile = ({ params }) => {
 							/>
 							<label for="profile-btn">
 								<HiMiniPencilSquare
-									size={30}
-									className="text-white cursor-pointer"
+									size={20}
+									className="text-gray cursor-pointer"
 								/>
 							</label>
 						</div>
