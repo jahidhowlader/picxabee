@@ -29,7 +29,7 @@ const PostCards = () => {
 				{posts &&
 					posts
 						?.reverse()
-						?.map((post) => (
+						.map((post) => (
 							<SinglePost key={post._id} post={post}></SinglePost>
 						))}
 			</div>
